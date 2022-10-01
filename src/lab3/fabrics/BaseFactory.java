@@ -8,11 +8,11 @@ import lab3.shapes.triangles.Triangle;
 public abstract class BaseFactory {
 
     protected final PointsFabric trianglePointsFabric;
-    protected final RandomPointGenerator circleCenterPointGenerator;
+    protected final PointsFabric circlePointsGenerator;
 
-    public BaseFactory(PointsFabric trianglePointsFabric, RandomPointGenerator circleCenterPointGenerator) {
+    public BaseFactory(PointsFabric trianglePointsFabric, PointsFabric circlePointsGenerator) {
         this.trianglePointsFabric = trianglePointsFabric;
-        this.circleCenterPointGenerator = circleCenterPointGenerator;
+        this.circlePointsGenerator = circlePointsGenerator;
     }
 
     abstract public Circle createCircle();
