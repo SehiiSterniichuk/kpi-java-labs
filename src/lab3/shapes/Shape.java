@@ -4,33 +4,20 @@ import lab3.Color;
 import lab3.Point;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public abstract class Shape {
     private final Color color;
 
-    protected List<Point> vertices;
+    protected ArrayList<Point> vertices;
 
-    protected Double square = 0.;
-
-    public Shape(Color color, List<Point> vertices) {
+    public Shape(Color color, ArrayList<Point> vertices) {
         this.color = color;
-        if (!setVertices(vertices)) {
-            throw new RuntimeException("Invalid vertices");
-        }
+        this.vertices = vertices;
     }
 
-    public Double getSquare() {
-        return this.square;
-    }
+    abstract public Double getSquare();
 
-    public Color getColor() {
-        return color;
+    public double length(Point a, Point b) {
+        return Math.sqrt(Math.pow( (b.x() - a.x()), 2) + Math.pow( (b.y() - a.y()), 2));
     }
-
-    public List<Point> getVertices() {
-        return new ArrayList<>(vertices);
-    }
-
-    abstract public boolean setVertices(List<Point> vertices);
 }

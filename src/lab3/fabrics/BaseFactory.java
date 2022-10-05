@@ -6,12 +6,10 @@ import lab3.shapes.triangles.Triangle;
 
 public abstract class BaseFactory {
 
-    protected final PointsFabric trianglePointsFabric;
-    protected final PointsFabric circlePointsGenerator;
+    protected final PointsFabric pointsFabric;
 
-    public BaseFactory(PointsFabric trianglePointsFabric, PointsFabric circlePointsGenerator) {
-        this.trianglePointsFabric = trianglePointsFabric;
-        this.circlePointsGenerator = circlePointsGenerator;
+    public BaseFactory(PointsFabric pointsFabric) {
+        this.pointsFabric = pointsFabric;
     }
 
     abstract public Circle createCircle();
