@@ -3,6 +3,7 @@ package lab3.shapes;
 import lab3.Color;
 import lab3.Point;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Shape {
@@ -25,6 +26,10 @@ public abstract class Shape {
 
     public Color getColor() {
         return color;
+    }
+
+    public List<Point> getVertices() {
+        return new ArrayList<>(vertices);
     }
 
     abstract public boolean setVertices(List<Point> vertices);

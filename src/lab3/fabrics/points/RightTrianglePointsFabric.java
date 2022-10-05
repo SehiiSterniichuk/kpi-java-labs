@@ -7,13 +7,11 @@ import java.util.List;
 public class RightTrianglePointsFabric implements PointsFabric {
 
     private final int diff;
-    private final int maxAbsoluteValueForStartPoint;
 
     private final RandomPointGenerator pointGenerator;
 
     public RightTrianglePointsFabric(int diff, int maxAbsoluteValueForStartPoint) {
         this.diff = diff;
-        this.maxAbsoluteValueForStartPoint = maxAbsoluteValueForStartPoint;
         pointGenerator = new RandomPointGenerator(maxAbsoluteValueForStartPoint);
     }
 

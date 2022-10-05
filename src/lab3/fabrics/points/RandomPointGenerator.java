@@ -5,7 +5,7 @@ import lab3.Point;
 import java.util.Random;
 
 public class RandomPointGenerator {
-    private static Random rand = new Random();
+    private static final Random rand = new Random();
 
     private final int maxAbsoluteValue;
 

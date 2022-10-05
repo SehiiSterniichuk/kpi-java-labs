@@ -1,7 +1,6 @@
 package lab3.fabrics;
 
 import lab3.fabrics.points.PointsFabric;
-import lab3.fabrics.points.RandomPointGenerator;
 import lab3.shapes.circles.Circle;
 import lab3.shapes.triangles.Triangle;
 
