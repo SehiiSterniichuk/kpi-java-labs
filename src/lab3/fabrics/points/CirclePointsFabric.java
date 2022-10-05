@@ -4,11 +4,11 @@ import lab3.Point;
 
 import java.util.List;
 
-public class RightCirclePointsFabric implements PointsFabric{// Why right?
+public class CirclePointsFabric implements PointsFabric{
 
     private final RandomPointGenerator pointGenerator;
 
-    public RightCirclePointsFabric(int maxAbsoluteValueForStartPoint) {
+    public CirclePointsFabric(int maxAbsoluteValueForStartPoint) {
         pointGenerator = new RandomPointGenerator(maxAbsoluteValueForStartPoint);
     }
 
@@ -16,7 +16,9 @@ public class RightCirclePointsFabric implements PointsFabric{// Why right?
     public List<Point> getPoints() {
         Point centre, pointOnCircle;
         centre = pointGenerator.getPoint();
-        pointOnCircle = pointGenerator.getPoint();// where is guarantee that this point will not be the same as centre
+        do {
+            pointOnCircle = pointGenerator.getPoint();
+        } while (pointOnCircle.equals(centre));
         return List.of(centre, pointOnCircle);
     }
 }

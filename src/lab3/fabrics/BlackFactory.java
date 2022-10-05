@@ -1,6 +1,6 @@
 package lab3.fabrics;
 
-import lab3.fabrics.points.RightCirclePointsFabric;
+import lab3.fabrics.points.CirclePointsFabric;
 import lab3.fabrics.points.RightTrianglePointsFabric;
 import lab3.shapes.circles.BlackCircle;
 import lab3.shapes.circles.Circle;
@@ -11,7 +11,7 @@ public class BlackFactory extends BaseFactory {
 
     public BlackFactory() {
         super(new RightTrianglePointsFabric(50, 100),
-                new RightCirclePointsFabric(100));
+                new CirclePointsFabric(100));
     }
 
     @Override
