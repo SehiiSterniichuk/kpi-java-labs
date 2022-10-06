@@ -8,10 +8,12 @@ import java.util.Random;
 
 public abstract class BaseFactory {
     protected static final Random rand = new Random();
-    protected final CorrectPointsFabricForBuildingShapes circlePointsGenerator;
+    protected CorrectPointsFabricForBuildingShapes circlePointsGenerator;
 
     protected BaseFactory(CorrectPointsFabricForBuildingShapes circlePointsGenerator) {
-        this.circlePointsGenerator = circlePointsGenerator;
+        if(setCirclePointsGenerator(circlePointsGenerator)){
+            throw new IllegalArgumentException("circlePointsGenerator is wrong");
+        }
     }
 
 
@@ -19,4 +21,12 @@ public abstract class BaseFactory {
 
     abstract public Circle createCircle();
     abstract public Triangle createTriangle();
+
+    public boolean setCirclePointsGenerator(CorrectPointsFabricForBuildingShapes circlePointsGenerator) {
+        if(circlePointsGenerator == null){
+            return false;
+        }
+        this.circlePointsGenerator = circlePointsGenerator;
+        return true;
+    }
 }
