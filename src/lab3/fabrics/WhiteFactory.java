@@ -10,7 +10,7 @@ import lab3.shapes.triangles.WhiteTriangle;
 
 import java.util.List;
 
-public class WhiteFactory extends BaseFactory {
+public class WhiteFactory extends RandomBaseFactory {
 
     public WhiteFactory() {
         super(List.of(new RightTrianglePointsFabric(50, 100, 1000),
