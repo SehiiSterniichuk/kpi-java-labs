@@ -20,20 +20,30 @@ public abstract class Circle extends Shape {
         double radius = Math.sqrt((xC - x1)*(xC - x1) + (yC - y1)*(yC - y1));
         return Math.PI*Math.pow(radius,2);
     }
+
     @Override
-    public boolean setVertices(List<Point> vertices) {
+    public Double calculateSquare() {
+        return calculateSquareOfCircle(getVertices());
+    }
+    @Override
+    public boolean checkVertices(List<Point> vertices) {
         if (vertices.size() != 2) {
             System.out.println("Circle must have 2 vertices instead of " + vertices.size());
             return false;
         }
-        double localSquare = calculateSquareOfCircle(vertices);
-        if (localSquare <= 0) {
+        if (calculateSquareOfCircle(vertices) <= 0) {
             System.out.println("Square of this circle is less than 0");
             return false;
         }
-        square = localSquare;
-        this.vertices = vertices;
         return true;
     }
 
+    @Override
+    public String toString() {
+        return getClass().getSimpleName() + " {" +
+                "\n\tCenter: " + vertices.get(0) +
+                "\n\tPoint on circle: " + vertices.get(1) +
+                "\n\tsquare: " + calculateSquare() +
+                "\n}";
+    }
 }

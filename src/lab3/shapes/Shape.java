@@ -11,18 +11,15 @@ public abstract class Shape {
 
     protected List<Point> vertices;
 
-    protected Double square = 0.;
 
     public Shape(Color color, List<Point> vertices) {
         this.color = color;
-        if (!setVertices(vertices)) {
+        if (!checkVertices(vertices)) {
             throw new RuntimeException("Invalid vertices");
         }
     }
 
-    public Double getSquare() {
-        return this.square;
-    }
+    abstract public Double calculateSquare();
 
     public Color getColor() {
         return color;
@@ -32,5 +29,9 @@ public abstract class Shape {
         return new ArrayList<>(vertices);
     }
 
-    abstract public boolean setVertices(List<Point> vertices);
+    abstract public boolean checkVertices(List<Point> vertices);
+
+    public void setVertices(List<Point> vertices){
+        this.vertices = vertices;
+    }
 }
