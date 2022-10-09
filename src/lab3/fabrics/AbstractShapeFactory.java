@@ -7,6 +7,6 @@ public class AbstractShapeFactory {
         if(Color.BLACK == color){
             return new BlackFactory();
         }
-        return new WhiteFactory();
+        else return new WhiteFactory();
     }
 }
