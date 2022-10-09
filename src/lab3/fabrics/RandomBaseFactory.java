@@ -4,31 +4,29 @@ import lab3.fabrics.points.CorrectPointsFabricForBuildingShapes;
 
 import java.util.List;
 
-public abstract class RandomBaseFactory extends BaseFactory{
+public abstract class RandomBaseFactory extends BaseFactory {
 
-    private List<CorrectPointsFabricForBuildingShapes> trianglePointsFabrics;
+    private List<CorrectPointsFabricForBuildingShapes> listOfTrianglePointsFabrics;
 
-    public RandomBaseFactory(List<CorrectPointsFabricForBuildingShapes> trianglePointsFabrics, CorrectPointsFabricForBuildingShapes circlePointsGenerator) {
+    public RandomBaseFactory(List<CorrectPointsFabricForBuildingShapes> listOfTrianglePointsFabrics, CorrectPointsFabricForBuildingShapes circlePointsGenerator) {
         super(circlePointsGenerator);
-        if(!setTrianglePointsFabrics(trianglePointsFabrics)){
-            throw new IllegalArgumentException("trianglePointsFabrics list is wrong");
+        if (!checkTrianglePointsFabrics(listOfTrianglePointsFabrics)) {
+            throw new IllegalArgumentException("listOfTrianglePointsFabrics list is wrong");
         }
+        setListOfTrianglePointsFabrics(listOfTrianglePointsFabrics);
     }
+
     @Override
     protected CorrectPointsFabricForBuildingShapes getTrianglePointsFabric() {
-        int randIndex = rand.nextInt(trianglePointsFabrics.size());
-        return trianglePointsFabrics.get(randIndex);
+        int randIndex = rand.nextInt(listOfTrianglePointsFabrics.size());
+        return listOfTrianglePointsFabrics.get(randIndex);
     }
 
-    public boolean setTrianglePointsFabrics(List<CorrectPointsFabricForBuildingShapes> trianglePointsFabrics) {
-        if(trianglePointsFabrics == null){
-            return false;
-        }
-        while(trianglePointsFabrics.remove(null));
-        if(trianglePointsFabrics.size() < 2){
-            return false;
-        }
-        this.trianglePointsFabrics = trianglePointsFabrics;
-        return true;
+    public boolean checkTrianglePointsFabrics(List<CorrectPointsFabricForBuildingShapes> listOfTrianglePointsFabrics) {
+        return listOfTrianglePointsFabrics != null && listOfTrianglePointsFabrics.size() >= 2;
+    }
+
+    public void setListOfTrianglePointsFabrics(List<CorrectPointsFabricForBuildingShapes> listOfTrianglePointsFabrics) {
+        this.listOfTrianglePointsFabrics = listOfTrianglePointsFabrics;
     }
 }

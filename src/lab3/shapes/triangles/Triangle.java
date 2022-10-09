@@ -24,6 +24,7 @@ public abstract class Triangle extends Shape {
                 points.get(1).x(), points.get(1).y(),
                 points.get(2).x(), points.get(2).y());
     }
+
     public static double calculateSquareOfTriangle(Triangle triangle) {
         return calculateSquareOfTriangle(triangle.getVertices());
     }

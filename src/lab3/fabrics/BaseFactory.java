@@ -11,22 +11,23 @@ public abstract class BaseFactory {
     protected CorrectPointsFabricForBuildingShapes circlePointsGenerator;
 
     protected BaseFactory(CorrectPointsFabricForBuildingShapes circlePointsGenerator) {
-        if(setCirclePointsGenerator(circlePointsGenerator)){
+        if (checkCirclePointsGenerator(circlePointsGenerator)) {
             throw new IllegalArgumentException("circlePointsGenerator is wrong");
         }
+        setCirclePointsGenerator(circlePointsGenerator);
     }
-
 
     protected abstract CorrectPointsFabricForBuildingShapes getTrianglePointsFabric();
 
     abstract public Circle createCircle();
+
     abstract public Triangle createTriangle();
 
-    public boolean setCirclePointsGenerator(CorrectPointsFabricForBuildingShapes circlePointsGenerator) {
-        if(circlePointsGenerator == null){
-            return false;
-        }
+    public void setCirclePointsGenerator(CorrectPointsFabricForBuildingShapes circlePointsGenerator) {
         this.circlePointsGenerator = circlePointsGenerator;
-        return true;
+    }
+
+    public boolean checkCirclePointsGenerator(CorrectPointsFabricForBuildingShapes circlePointsGenerator) {
+        return circlePointsGenerator != null;
     }
 }

@@ -10,21 +10,23 @@ public abstract class Circle extends Shape {
     public Circle(Color color, List<Point> points) {
         super(color, points);
     }
+
     public static double calculateSquareOfCircle(List<Point> points) {
         return calculateSquareOfCircle(points.get(0).x(), points.get(0).y(),
                 points.get(1).x(), points.get(1).y());
     }
 
     public static double calculateSquareOfCircle(double xC, double yC, double x1,
-                                                   double y1) {
-        double radius = Math.sqrt((xC - x1)*(xC - x1) + (yC - y1)*(yC - y1));
-        return Math.PI*Math.pow(radius,2);
+                                                 double y1) {
+        double radius = Math.sqrt((xC - x1) * (xC - x1) + (yC - y1) * (yC - y1));
+        return Math.PI * Math.pow(radius, 2);
     }
 
     @Override
     public Double calculateSquare() {
         return calculateSquareOfCircle(getVertices());
     }
+
     @Override
     public boolean checkVertices(List<Point> vertices) {
         if (vertices.size() != 2) {

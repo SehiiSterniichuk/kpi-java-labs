@@ -3,8 +3,7 @@ package lab3.fabrics.points;
 import lab3.Point;
 
 import java.util.List;
-import static java.lang.Math.max;
-import static java.lang.Math.min;
+
 import static java.lang.Math.abs;
 
 public abstract class SideTrianglePointsFabric extends CorrectPointsFabricForBuildingShapes {
@@ -15,9 +14,10 @@ public abstract class SideTrianglePointsFabric extends CorrectPointsFabricForBui
     private final RandomPointGenerator pointGenerator;
 
     public SideTrianglePointsFabric(int diffMin, int diffMax, int maxAbsoluteValueForStartPoint) {
-        if(!setDiff(diffMax, diffMin)){
+        if (!checkDiff(diffMax, diffMin)) {
             throw new IllegalArgumentException("False range");
         }
+        setDiff(diffMax, diffMin);
         pointGenerator = new RandomPointGenerator(maxAbsoluteValueForStartPoint);
     }
 
@@ -39,17 +39,14 @@ public abstract class SideTrianglePointsFabric extends CorrectPointsFabricForBui
         return diffMin;
     }
 
-    public boolean setDiff(int diffMax, int diffMin){
-        diffMax = abs(diffMax);
-        diffMin = abs(diffMin);
-        if(diffMax - diffMin == 0){
-            return false;
-        }
-        this.diffMax = max(diffMin, diffMax);
-        this.diffMin = min(diffMin, diffMax);
-        return true;
+    public static boolean checkDiff(int diffMax, int diffMin) {
+        return diffMax > diffMin && diffMax == abs(diffMax) && diffMin == abs(diffMin);
     }
 
+    public void setDiff(int diffMax, int diffMin) {
+        this.diffMax = diffMax;
+        this.diffMin = diffMin;
+    }
 
     protected abstract int getRandomDiff();
 }

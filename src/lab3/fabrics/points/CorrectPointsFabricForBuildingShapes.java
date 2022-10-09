@@ -7,5 +7,6 @@ import java.util.Random;
 
 public abstract class CorrectPointsFabricForBuildingShapes {
     static protected final Random rand = new Random();
+
     abstract public List<Point> getPoints();
 }

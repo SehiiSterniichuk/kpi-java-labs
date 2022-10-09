@@ -31,7 +31,7 @@ public abstract class Shape {
 
     abstract public boolean checkVertices(List<Point> vertices);
 
-    public void setVertices(List<Point> vertices){
+    public void setVertices(List<Point> vertices) {
         this.vertices = vertices;
     }
 }
