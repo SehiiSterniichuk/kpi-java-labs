@@ -1,24 +1,28 @@
-package lab3.fabrics.points;
+package lab3.fabrics.points.triangles;
 
 import lab3.Point;
+import lab3.fabrics.points.RandomPointGenerator;
 
 import java.util.List;
+import java.util.Random;
 
 import static java.lang.Math.abs;
 
-public abstract class SideTrianglePointsFabric extends CorrectPointsFabricForBuildingShapes {
+public class RightTrianglePointsFabric implements TrianglePointsFabric {
+
+    private static final Random rand = new Random();
 
     private int diffMax;
     private int diffMin;
 
     private final RandomPointGenerator pointGenerator;
 
-    public SideTrianglePointsFabric(int diffMin, int diffMax, int maxAbsoluteValueForStartPoint) {
+    public RightTrianglePointsFabric(int diffMin, int diffMax, int maxAbsoluteValueForStartPoint) {
         if (!checkDiff(diffMax, diffMin)) {
             throw new IllegalArgumentException("False range");
         }
         setDiff(diffMax, diffMin);
-        pointGenerator = new RandomPointGenerator(maxAbsoluteValueForStartPoint);
+        pointGenerator = new RandomPointGenerator(abs(maxAbsoluteValueForStartPoint));
     }
 
     @Override
@@ -48,5 +52,7 @@ public abstract class SideTrianglePointsFabric extends CorrectPointsFabricForBui
         this.diffMin = diffMin;
     }
 
-    protected abstract int getRandomDiff();
+    private int getRandomDiff() {
+        return rand.nextInt(getDiffMax() - getDiffMin() + 1) + getDiffMin();
+    }
 }

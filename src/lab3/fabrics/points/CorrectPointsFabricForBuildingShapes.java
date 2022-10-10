@@ -3,10 +3,8 @@ package lab3.fabrics.points;
 import lab3.Point;
 
 import java.util.List;
-import java.util.Random;
 
-public abstract class CorrectPointsFabricForBuildingShapes {
-    static protected final Random rand = new Random();
+public interface CorrectPointsFabricForBuildingShapes {
 
-    abstract public List<Point> getPoints();
+    List<Point> getPoints();
 }

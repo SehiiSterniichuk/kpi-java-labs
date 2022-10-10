@@ -36,11 +36,14 @@ public abstract class Triangle extends Shape {
 
     @Override
     public boolean checkVertices(List<Point> vertices) {
+        return checkTriangleVertices(vertices);
+    }
+
+    public static boolean checkTriangleVertices(List<Point> vertices) {
         if (vertices.size() != 3) {
             System.out.println("Triangle must have 3 vertices instead of " + vertices.size());
             return false;
-        }
-        if (calculateSquareOfTriangle(vertices) <= 0) {
+        } else if (calculateSquareOfTriangle(vertices) <= 0) {
             System.out.println("Square of this triangle less than 0");
             return false;
         }

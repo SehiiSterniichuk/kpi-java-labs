@@ -4,7 +4,7 @@ import lab3.Point;
 
 import java.util.List;
 
-public class CirclePointsFabric extends CorrectPointsFabricForBuildingShapes {
+public class CirclePointsFabric implements CorrectPointsFabricForBuildingShapes {
 
     private final RandomPointGenerator pointGenerator;
 
