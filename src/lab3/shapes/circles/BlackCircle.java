@@ -5,7 +5,7 @@ import lab3.Point;
 
 import java.util.List;
 
-public class BlackCircle extends Circle{
+public class BlackCircle extends Circle {
 
     public BlackCircle(List<Point> vertices) {  //centre, point on circle
         super(Color.BLACK, vertices);

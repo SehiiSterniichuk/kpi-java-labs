@@ -32,8 +32,7 @@ public abstract class Circle extends Shape {
         if (vertices.size() != 2) {
             System.out.println("Circle must have 2 vertices instead of " + vertices.size());
             return false;
-        }
-        if (calculateSquareOfCircle(vertices) <= 0) {
+        } else if (calculateSquareOfCircle(vertices) <= 0) {
             System.out.println("Square of this circle is less than 0");
             return false;
         }
