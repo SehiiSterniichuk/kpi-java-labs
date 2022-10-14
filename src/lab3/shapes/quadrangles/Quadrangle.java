@@ -3,6 +3,7 @@ package lab3.shapes.quadrangles;
 import lab3.Color;
 import lab3.Point;
 import lab3.shapes.Shape;
+
 import java.util.List;
 
 public abstract class Quadrangle extends Shape {
@@ -12,7 +13,7 @@ public abstract class Quadrangle extends Shape {
     }
 
     public static double calculateSquareOfQuadrangle(double x1, double y1, double x2, double y2,
-                                                   double x3, double y3, double x4, double y4) {
+                                                     double x3, double y3, double x4, double y4) {
         return 0.5 * (Math.abs((x1 * y2 - y1 * x2) + (x2 * y3 - y2 * x3) +
                 (x3 * y4 - y3 * x4) + (x4 * y1 - y4 * x1)));
     }
@@ -43,11 +44,13 @@ public abstract class Quadrangle extends Shape {
         if (vertices.size() != 4) {
             System.out.println("Rectangle must have 4 vertices instead of " + vertices.size());
             return false;
-        } else if (isCollinear(vertices)) {
+        }
+        if (isCollinear(vertices)) {
             System.out.println("Given points do not form a quadrangle, " +
                     "because three of them lie on the same straight line");
             return false;
-        } else if (calculateSquareOfQuadrangle(vertices) <= 0) {
+        }
+        if (calculateSquareOfQuadrangle(vertices) <= 0) {
             System.out.println("Square of this circle is less than 0");
             return false;
         }
@@ -56,8 +59,8 @@ public abstract class Quadrangle extends Shape {
 
     public static boolean isCollinear(List<Point> vertices) {
         return (collinearityOfThreePoints(vertices.get(0).x(), vertices.get(0).y(),
-                        vertices.get(1).x(), vertices.get(1).y(),
-                        vertices.get(2).x(), vertices.get(2).y()) ||
+                vertices.get(1).x(), vertices.get(1).y(),
+                vertices.get(2).x(), vertices.get(2).y()) ||
                 collinearityOfThreePoints(vertices.get(0).x(), vertices.get(0).y(),
                         vertices.get(1).x(), vertices.get(1).y(),
                         vertices.get(3).x(), vertices.get(3).y()) ||
@@ -77,7 +80,7 @@ public abstract class Quadrangle extends Shape {
 
     @Override
     public String toString() {
-        return  getClass().getSimpleName() + " {" +
+        return getClass().getSimpleName() + " {" +
                 "\n\tA: " + vertices.get(0) +
                 "\n\tB: " + vertices.get(1) +
                 "\n\tC: " + vertices.get(2) +

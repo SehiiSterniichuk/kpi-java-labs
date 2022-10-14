@@ -18,9 +18,11 @@ public abstract class BaseFactory {
                           TrianglePointsFabric trianglePointsFabric, QuadranglePointsFabric quadranglePointsFabric) {
         if (!checkCirclePointsGenerator(circlePointsGenerator)) {
             throw new IllegalArgumentException("circlePointsGenerator is wrong");
-        } else if (!checkTrianglePointsGenerator(trianglePointsFabric)) {
+        }
+        if (!checkTrianglePointsGenerator(trianglePointsFabric)) {
             throw new IllegalArgumentException("trianglePointsFabric is wrong");
-        } else if (!checkQuadranglePointsGenerator(quadranglePointsFabric)) {
+        }
+        if (!checkQuadranglePointsGenerator(quadranglePointsFabric)) {
             throw new IllegalArgumentException("quadranglePointsFabric is wrong");
         }
         setTrianglePointsFabric(trianglePointsFabric);
@@ -67,6 +69,7 @@ public abstract class BaseFactory {
         return circlePointsGenerator;
     }
 
-    public CorrectPointsFabricForBuildingShapes getQuadranglePointsFabric() { return quadranglePointsFabric;
+    public CorrectPointsFabricForBuildingShapes getQuadranglePointsFabric() {
+        return quadranglePointsFabric;
     }
 }
