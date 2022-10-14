@@ -17,6 +17,7 @@ public abstract class Shape {
         if (!checkVertices(vertices)) {
             throw new IllegalArgumentException("Invalid vertices");
         }
+        this.vertices = vertices;
     }
 
     abstract public Double calculateSquare();
@@ -34,5 +35,4 @@ public abstract class Shape {
     public Color getColor() {
         return color;
     }
-
 }

@@ -6,6 +6,8 @@ import lab3.shapes.Shape;
 
 import java.util.List;
 
+import static java.lang.Math.abs;
+
 public abstract class Triangle extends Shape {
 
     public Triangle(Color color, List<Point> vertices) {
@@ -14,7 +16,7 @@ public abstract class Triangle extends Shape {
 
     public static double calculateSquareOfTriangle(double x1, double y1, double x2,
                                                    double y2, double x3, double y3) {
-        return 0.5 * (x1 * (y2 - y3)
+        return 0.5 * abs(x1 * (y2 - y3)
                 + x2 * (y3 - y1)
                 + x3 * (y1 - y2));
     }
@@ -43,7 +45,8 @@ public abstract class Triangle extends Shape {
         if (vertices.size() != 3) {
             System.out.println("Triangle must have 3 vertices instead of " + vertices.size());
             return false;
-        } else if (calculateSquareOfTriangle(vertices) <= 0) {
+        }
+        if (calculateSquareOfTriangle(vertices) <= 0) {
             System.out.println("Square of this triangle less than 0");
             return false;
         }
