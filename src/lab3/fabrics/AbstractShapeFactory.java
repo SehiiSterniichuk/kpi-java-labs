@@ -4,8 +4,10 @@ import lab3.Color;
 
 public class AbstractShapeFactory {
     public static BaseFactory getFactory(Color color) {
-        if (Color.BLACK == color) {
-            return new BlackFactory();
-        } else return new WhiteFactory();
+        return switch (color) {
+            case BLACK  -> new BlackFactory();
+            case WHITE  -> new WhiteFactory();
+            case PURPLE -> new PurpleFactory();
+        };
     }
 }
