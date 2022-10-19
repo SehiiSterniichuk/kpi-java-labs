@@ -1,6 +1,6 @@
 package lab3.fabrics;
 
-import lab3.fabrics.points.CorrectPointsFabricForBuildingShapes;
+import lab3.fabrics.points.CirclePointsFabric;
 import lab3.fabrics.points.quadrangle.QuadranglePointsFabric;
 import lab3.fabrics.points.triangles.TrianglePointsFabric;
 import lab3.shapes.circles.Circle;
@@ -8,13 +8,13 @@ import lab3.shapes.quadrangles.Quadrangle;
 import lab3.shapes.triangles.Triangle;
 
 public abstract class BaseFactory {
-    private CorrectPointsFabricForBuildingShapes circlePointsGenerator;
+    private CirclePointsFabric circlePointsGenerator;
 
     private TrianglePointsFabric trianglePointsFabric;
 
     private QuadranglePointsFabric quadranglePointsFabric;
 
-    protected BaseFactory(CorrectPointsFabricForBuildingShapes circlePointsGenerator,
+    protected BaseFactory(CirclePointsFabric circlePointsGenerator,
                           TrianglePointsFabric trianglePointsFabric, QuadranglePointsFabric quadranglePointsFabric) {
         if (!checkCirclePointsGenerator(circlePointsGenerator)) {
             throw new IllegalArgumentException("circlePointsGenerator is wrong");
@@ -36,15 +36,15 @@ public abstract class BaseFactory {
 
     abstract public Quadrangle createQuadrangle();
 
-    public boolean checkCirclePointsGenerator(CorrectPointsFabricForBuildingShapes circlePointsGenerator) {
+    public static boolean checkCirclePointsGenerator(CirclePointsFabric circlePointsGenerator) {
         return circlePointsGenerator != null;
     }
 
-    public boolean checkTrianglePointsGenerator(TrianglePointsFabric trianglePointsFabric) {
+    public static boolean checkTrianglePointsGenerator(TrianglePointsFabric trianglePointsFabric) {
         return trianglePointsFabric != null;
     }
 
-    public boolean checkQuadranglePointsGenerator(QuadranglePointsFabric quadranglePointsFabric) {
+    public static boolean checkQuadranglePointsGenerator(QuadranglePointsFabric quadranglePointsFabric) {
         return quadranglePointsFabric != null;
     }
 
@@ -53,7 +53,7 @@ public abstract class BaseFactory {
         this.trianglePointsFabric = trianglePointsFabric;
     }
 
-    public void setCirclePointsGenerator(CorrectPointsFabricForBuildingShapes circlePointsGenerator) {
+    public void setCirclePointsGenerator(CirclePointsFabric circlePointsGenerator) {
         this.circlePointsGenerator = circlePointsGenerator;
     }
 
@@ -61,15 +61,15 @@ public abstract class BaseFactory {
         this.quadranglePointsFabric = quadranglePointsFabric;
     }
 
-    public CorrectPointsFabricForBuildingShapes getTrianglePointsFabric() {
+    public TrianglePointsFabric getTrianglePointsFabric() {
         return this.trianglePointsFabric;
     }
 
-    public CorrectPointsFabricForBuildingShapes getCirclePointsGenerator() {
+    public CirclePointsFabric getCirclePointsGenerator() {
         return circlePointsGenerator;
     }
 
-    public CorrectPointsFabricForBuildingShapes getQuadranglePointsFabric() {
+    public QuadranglePointsFabric getQuadranglePointsFabric() {
         return quadranglePointsFabric;
     }
 }
