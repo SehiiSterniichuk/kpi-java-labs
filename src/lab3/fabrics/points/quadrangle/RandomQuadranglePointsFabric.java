@@ -11,6 +11,7 @@ public class RandomQuadranglePointsFabric implements QuadranglePointsFabric {
 
     public RandomQuadranglePointsFabric(int maxAbsoluteValue) {
         fabric = new RandomListOfPointsFabric(maxAbsoluteValue);
+
     }
 
     @Override

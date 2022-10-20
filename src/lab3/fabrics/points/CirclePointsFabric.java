@@ -3,7 +3,6 @@ package lab3.fabrics.points;
 import lab3.Point;
 
 import java.util.List;
-
 public class CirclePointsFabric implements CorrectPointsFabricForBuildingShapes {
 
     private final RandomPointGenerator pointGenerator;

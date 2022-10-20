@@ -8,6 +8,7 @@ import java.util.Random;
 
 import static java.lang.Math.abs;
 
+
 public class RectanglePointsFabric implements QuadranglePointsFabric {
     private static final Random rand = new Random();
     private int diffMax;
